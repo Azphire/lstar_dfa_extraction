@@ -12,10 +12,10 @@ class mat:
 			curr_state = self.dfa[curr_state][char]
 		
 		if curr_state in self.dfa["f"]:
-			#print("       \t\t\t\t\t\t\t\t\tYES")
+			# print("       \t\t\t\t\t\t\t\t\tYES")
 			return 1
 		else:
-			#print("       \t\t\t\t\t\t\t\t\tNO")
+			# print("       \t\t\t\t\t\t\t\t\tNO")
 			return 0
 
 
@@ -253,7 +253,8 @@ mat2 = mat(	alphabet1,
 		{"q0": {"a": "q1", "b": "q1"},
 		"q1": {"a": "q2", "b": "q2"},
 		"q2": {"a": "q3", "b": "q3"},
-		"q3": {"a": "q3", "b": "q3"},
+		"q3": {"a": "q3", "b": "q4"},
+		"q4": {"a": "q1", "b": "q2"},
 		"f": ["q3"]}	
 		)
 
@@ -269,11 +270,11 @@ print("LEARNER\t\t\t\t\t\t\t\t\tTEACHER")
 print("~~~~~~~\t\t\t\t\t\t\t\t\t~~~~~~~")
 
 print("Test 1")
-test = learner(alphabet1, mat2)
+test = learner(alphabet1, mat1)
 test.learn_dfa()
 
 print("Test 2")
-test = learner(alphabet1, mat1)
+test = learner(alphabet1, mat2)
 test.learn_dfa()
 
 
